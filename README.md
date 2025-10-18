@@ -33,3 +33,6 @@ Sketch menampilkan intro animasi (bintang → hamster + termometer → hamster l
    ```cpp
    #pragma once
    #define UBIDOTS_TOKEN "ISI_TOKEN_UBIDOTS_KAMU"
+
+## Lisensi
+Proyek ini berlisensi **MIT**. Lihat berkas [LICENSE](LICENSE).
