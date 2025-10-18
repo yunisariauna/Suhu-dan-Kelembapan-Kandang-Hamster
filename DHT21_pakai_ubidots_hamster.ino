@@ -10,6 +10,7 @@
 #include "SD.h"
 #include "FS.h"
 #include <math.h>
+#include "secrets.h"             // <-- UBIDOTS_TOKEN diambil dari sini
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
@@ -33,14 +34,14 @@ float t = NAN;
 float h = NAN;
 
 // Ubidots
-const char *UBIDOTS_TOKEN = "BBUS-T7wWsXQYkF522mdg0eJNEyWjP7vfJs";
+// (token dipindah ke secrets.h)
 const char *DEVICE_LABEL  = "esp32-dht";
 const char *VARIABLE_TEM  = "temperature";
 const char *VARIABLE_HUM  = "humidity";
 
 const int PUBLISH_FREQUENCY = 15000;  // 15 detik
 unsigned long timer;
-Ubidots ubidots(UBIDOTS_TOKEN);
+Ubidots ubidots(UBIDOTS_TOKEN);      // pakai token dari secrets.h
 
 // Sampling
 const uint32_t SAMPLE_INTERVAL_S = 60; // tiap menit di detik == 00
@@ -307,7 +308,7 @@ void showIntroAnimation() {
   }
   delay(500);
 
-    // FASE 3: HAMSTER FULL-BODY lari (kanan→kiri) + bendera + awan + BUNGA
+  // FASE 3: HAMSTER FULL-BODY lari (kanan→kiri) + bendera + awan + BUNGA
   int startX = SCREEN_WIDTH + 4;   // mulai di luar kanan
   int endX   = -48;                // keluar kiri (lebar hamster ~44px)
   int yRun   = 28;                 // jalur lari
@@ -591,7 +592,6 @@ void loop() {
   Serial.println(" %");
 
   // OLED
-    //Tampilan OLED
   display.clearDisplay();
   display.setTextColor(SSD1306_WHITE);
 
